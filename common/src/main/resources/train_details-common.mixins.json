@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "mc.craig.software.train_details.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "MixinTitleScreen"
+  ],
+  "mixins": [
+    "MixinArrivalSound"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
