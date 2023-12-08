@@ -8,6 +8,7 @@
   ],
   "mixins": [
     "MixinArrivalSound",
+    "MixinCarriageContraptionEntity",
     "MixinCarriageSounds"
   ],
   "injectors": {

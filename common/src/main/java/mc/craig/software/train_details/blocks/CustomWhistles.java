@@ -2,7 +2,7 @@ package mc.craig.software.train_details.blocks;
 
 import com.simibubi.create.content.decoration.steamWhistle.WhistleBlock;
 import mc.craig.software.train_details.TrainDetailsBlocks;
-import mc.craig.software.train_details.blockentity.ThomasWhistleBlockEntity;
+import mc.craig.software.train_details.blockentity.CustomWhistleBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvent;
@@ -14,11 +14,11 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.function.Supplier;
 
-public class ThomasWhistle extends WhistleBlock {
+public class CustomWhistles extends WhistleBlock {
 
     private final Supplier<SoundEvent> soundEvent;
 
-    public ThomasWhistle(Properties properties, Supplier<SoundEvent> soundEventSupplier) {
+    public CustomWhistles(Properties properties, Supplier<SoundEvent> soundEventSupplier) {
         super(properties);
         registerDefaultState(defaultBlockState().setValue(POWERED, false)
                 .setValue(WALL, false)
@@ -52,7 +52,7 @@ public class ThomasWhistle extends WhistleBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new ThomasWhistleBlockEntity(TrainDetailsBlocks.THOMAS_WHISTLE_BE.get(), blockPos, blockState);
+        return new CustomWhistleBlockEntity(TrainDetailsBlocks.THOMAS_WHISTLE_BE.get(), blockPos, blockState);
     }
 
     @Override

@@ -1,11 +1,12 @@
 package mc.craig.software.train_details.blockentity;
 
+import com.simibubi.create.AllSoundEvents;
 import com.simibubi.create.content.decoration.steamWhistle.WhistleBlock;
 import com.simibubi.create.content.decoration.steamWhistle.WhistleBlockEntity;
 import com.simibubi.create.content.kinetics.steamEngine.SteamJetParticleData;
 import com.simibubi.create.foundation.utility.AngleHelper;
 import com.simibubi.create.foundation.utility.VecHelper;
-import mc.craig.software.train_details.TrainDetailsSounds;
+import mc.craig.software.train_details.blocks.CustomWhistles;
 import mc.craig.software.train_details.sound.CustomWhisteSoundInstance;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -13,13 +14,14 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
-public class ThomasWhistleBlockEntity extends WhistleBlockEntity {
+public class CustomWhistleBlockEntity extends WhistleBlockEntity {
 
-    public ThomasWhistleBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
+    public CustomWhistleBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
     }
 
@@ -46,9 +48,13 @@ public class ThomasWhistleBlockEntity extends WhistleBlockEntity {
             Minecraft.getInstance()
                     .getSoundManager()
                     .play(soundInstance = new CustomWhisteSoundInstance(size, worldPosition));
-            TrainDetailsSounds.THOMAS_WHISTLE.playAt(level, worldPosition, maxVolume * .175f,
-                    size == WhistleBlock.WhistleSize.SMALL ? f + .75f : f, false);
-            particle = true;
+            BlockState blockState = getBlockState();
+            Block block = blockState.getBlock();
+            if(block instanceof CustomWhistles customWhistles) {
+                new AllSoundEvents.SoundEntryBuilder(customWhistles.getSoundEvent().get().getLocation()).build().playAt(level, worldPosition, maxVolume * .175f,
+                        size == WhistleBlock.WhistleSize.SMALL ? f + .75f : f, false);
+                particle = true;
+            }
         }
 
         soundInstance.keepAlive();

@@ -7,9 +7,9 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.phys.Vec3;
 
-public class ThomasWhistleBlockEntityRenderer extends WhistleRenderer {
+public class CustomWhistleBlockRenderer extends WhistleRenderer {
 
-    public ThomasWhistleBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
+    public CustomWhistleBlockRenderer(BlockEntityRendererProvider.Context context) {
         super(context);
     }
 
