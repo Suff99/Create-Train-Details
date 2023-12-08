@@ -1,0 +1,12 @@
+{
+  "lady_whistle_blow": {
+    "sounds": [
+      "train_details:lady_whistle_blow"
+    ]
+  },
+  "thomas_whistle_blow": {
+    "sounds": [
+      "train_details:thomas_whistle_blow"
+    ]
+  }
+}

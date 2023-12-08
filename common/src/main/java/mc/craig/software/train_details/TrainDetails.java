@@ -1,6 +1,5 @@
 package mc.craig.software.train_details;
 
-import com.simibubi.create.Create;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,9 +11,9 @@ public class TrainDetails {
 
 
     public static void init() {
-        LOGGER.info("{} initializing! Create version: {} on platform: {}", NAME, Create.VERSION, ExampleExpectPlatform.platformName());
-        ExampleBlocks.init(); // hold registrate in a separate class to avoid loading early on forge
+        TrainDetailsBlocks.init();
         TrainDetailsSounds.init();
+        SoundEvents.SOUND.register();
     }
 
     public static ResourceLocation id(String path) {

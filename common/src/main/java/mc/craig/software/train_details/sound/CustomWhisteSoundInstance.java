@@ -1,17 +1,15 @@
 package mc.craig.software.train_details.sound;
 
-import static com.simibubi.create.AllSoundEvents.WHISTLE_HIGH;
-import static com.simibubi.create.AllSoundEvents.WHISTLE_LOW;
-import static com.simibubi.create.AllSoundEvents.WHISTLE_MEDIUM;
-
 import com.simibubi.create.content.decoration.steamWhistle.WhistleBlock.WhistleSize;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.resources.sounds.AbstractTickableSoundInstance;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.phys.Vec3;
-
+@Environment(EnvType.CLIENT)
 public class CustomWhisteSoundInstance extends AbstractTickableSoundInstance {
 
     private boolean active;

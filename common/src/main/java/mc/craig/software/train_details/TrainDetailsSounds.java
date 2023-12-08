@@ -12,6 +12,11 @@ public class TrainDetailsSounds {
             .category(SoundSource.BLOCKS)
             .build();
 
+    public static final AllSoundEvents.SoundEntry LADY_WHISTLE = create(TrainDetails.id("lady_whistle")).subtitle("Lady Whistle")
+            .playExisting(SoundEvents.GENERIC_EXPLODE, .1f, 1.1f)
+            .category(SoundSource.BLOCKS)
+            .build();
+
     public static void init(){
        /* THOMAS_WHISTLE.prepare();
         THOMAS_WHISTLE.register();*/

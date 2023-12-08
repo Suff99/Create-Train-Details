@@ -1,6 +1,5 @@
 package mc.craig.software.train_details.blockentity;
 
-import com.simibubi.create.AllSoundEvents;
 import com.simibubi.create.content.decoration.steamWhistle.WhistleBlock;
 import com.simibubi.create.content.decoration.steamWhistle.WhistleBlockEntity;
 import com.simibubi.create.content.kinetics.steamEngine.SteamJetParticleData;
@@ -28,8 +27,8 @@ public class ThomasWhistleBlockEntity extends WhistleBlockEntity {
     protected CustomWhisteSoundInstance soundInstance;
 
     @Override
+    @Environment(EnvType.CLIENT)
     protected void tickAudio(WhistleBlock.WhistleSize size, boolean powered) {
-        System.out.println("bananana");
         if (!powered) {
             if (soundInstance != null) {
                 soundInstance.fadeOut();

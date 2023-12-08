@@ -1,11 +1,16 @@
 package mc.craig.software.train_details.fabric.data;
 
-import mc.craig.software.train_details.ExampleBlocks;
+import mc.craig.software.train_details.TrainDetailsBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
-import net.minecraftforge.client.model.generators.MultiPartBlockStateBuilder;
+import net.minecraft.data.models.blockstates.MultiVariantGenerator;
+import net.minecraft.data.models.blockstates.Variant;
+import net.minecraft.data.models.blockstates.VariantProperties;
+import net.minecraft.data.models.model.ModelLocationUtils;
+
+import static net.minecraft.data.models.BlockModelGenerators.createHorizontalFacingDispatch;
 
 public class TrainDetailsModelsProvider extends FabricModelProvider {
 
@@ -15,7 +20,9 @@ public class TrainDetailsModelsProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
-        blockStateModelGenerator.createNonTemplateHorizontalBlock(ExampleBlocks.THOMAS_WHISTLE.get());
+        blockStateModelGenerator.createNonTemplateHorizontalBlock(TrainDetailsBlocks.THOMAS_WHISTLE.get());
+        blockStateModelGenerator.createNonTemplateHorizontalBlock(TrainDetailsBlocks.LADY_WHISTLE.get());
+
 
     }
 
