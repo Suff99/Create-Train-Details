@@ -20,8 +20,8 @@ public class TrainDetailsModelsProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockStateModelGenerator) {
-        blockStateModelGenerator.createNonTemplateHorizontalBlock(TrainDetailsBlocks.THOMAS_WHISTLE.get());
-        blockStateModelGenerator.createNonTemplateHorizontalBlock(TrainDetailsBlocks.LADY_WHISTLE.get());
+        blockStateModelGenerator.createNonTemplateHorizontalBlock(TrainDetailsBlocks.TWIN_FLUTE_WHISTLE.get());
+        blockStateModelGenerator.createNonTemplateHorizontalBlock(TrainDetailsBlocks.ROYAL_WHISTLE.get());
 
 
     }

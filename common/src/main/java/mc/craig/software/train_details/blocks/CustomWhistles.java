@@ -52,7 +52,7 @@ public class CustomWhistles extends WhistleBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new CustomWhistleBlockEntity(TrainDetailsBlocks.THOMAS_WHISTLE_BE.get(), blockPos, blockState);
+        return new CustomWhistleBlockEntity(TrainDetailsBlocks.CUSTOM_WHISTLE_BE.get(), blockPos, blockState);
     }
 
     @Override

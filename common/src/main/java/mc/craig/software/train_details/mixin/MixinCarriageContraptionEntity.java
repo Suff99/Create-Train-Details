@@ -1,19 +1,13 @@
 package mc.craig.software.train_details.mixin;
 
-import com.simibubi.create.content.contraptions.AbstractContraptionEntity;
-import com.simibubi.create.content.contraptions.Contraption;
-import com.simibubi.create.content.contraptions.OrientedContraptionEntity;
-import com.simibubi.create.content.decoration.steamWhistle.WhistleBlock;
 import com.simibubi.create.content.trains.entity.Carriage;
 import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
-import com.simibubi.create.foundation.utility.Pair;
 import mc.craig.software.train_details.sound.CustomCarriageSounds;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -22,7 +16,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Entity.class)
-public class MixinCarriageContraptionEntity {
+public abstract class MixinCarriageContraptionEntity {
+
+    @Shadow
+    public Level level;
+
+    @Shadow
+    public abstract AABB getBoundingBox();
 
     @Unique
     @Environment(EnvType.CLIENT)
@@ -40,6 +40,25 @@ public class MixinCarriageContraptionEntity {
                 if (dce.pointsInitialised && !carriageContraptionEntity1.getCarriage().train.derailed)
                     create_multiloader_addon_tempate$myCoolWhistleNoises.tick(dce);
             }
+
+            /*List<CarriageContraptionEntity> trains = level.getEntities(AllEntityTypes.CARRIAGE_CONTRAPTION.get(), getBoundingBox().expandTowards(new Vec3(64, 0, 64)), new Predicate<Entity>() {
+                @Override
+                public boolean test(Entity entity) {
+                    if (entity instanceof CarriageContraptionEntity carriageContraptionEntity2) {
+                        return carriageContraptionEntity2.getContraption() instanceof CarriageContraption carriageContraption;
+                    }
+                    return false;
+                }
+            });
+
+            if (carriageContraptionEntity1.getCarriage().train.honkTicks > 0) {
+                for (CarriageContraptionEntity train : trains) {
+                    if(train == carriageContraptionEntity1) continue;
+                    if (!train.getCarriage().train.honk) {
+                        train.getCarriage().train.honkTicks = 40;
+                    }
+                }
+            }*/
         }
     }
 

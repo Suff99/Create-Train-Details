@@ -7,19 +7,29 @@ import net.minecraft.sounds.SoundSource;
 
 public class TrainDetailsSounds {
 
-    public static final AllSoundEvents.SoundEntry THOMAS_WHISTLE = create(TrainDetails.id("thomas_whistle")).subtitle("Thomas Whistle")
+    public static final AllSoundEvents.SoundEntry TWIN_FLUTE_WHISTLE_LOOP = create(TrainDetails.id("twin_flute_whistle_loop")).subtitle("Thomas Whistle")
+            .playExisting(mc.craig.software.train_details.SoundEvents.TWIN_FLUTE_WHISTLE, .1f, 1.1f)
+            .category(SoundSource.BLOCKS)
+            .build();
+
+    public static final AllSoundEvents.SoundEntry TWIN_FLUTE_WHISTLE_END = create(TrainDetails.id("twin_flute_whistle_end")).subtitle("Thomas Whistle")
+            .playExisting(mc.craig.software.train_details.SoundEvents.TWIN_FLUTE_WHISTLE_END, .1f, 1.1f)
+            .category(SoundSource.BLOCKS)
+            .build();
+
+    public static final AllSoundEvents.SoundEntry TWIN_FLUTE_WHISTLE_MAN = create(TrainDetails.id("twin_flute_whistle")).subtitle("Thomas Whistle")
             .playExisting(SoundEvents.GENERIC_EXPLODE, .1f, 1.1f)
             .category(SoundSource.BLOCKS)
             .build();
 
-    public static final AllSoundEvents.SoundEntry LADY_WHISTLE = create(TrainDetails.id("lady_whistle")).subtitle("Lady Whistle")
+    public static final AllSoundEvents.SoundEntry ROYAL_WHISTLE = create(TrainDetails.id("royal_whistle")).subtitle("Lady Whistle")
             .playExisting(SoundEvents.GENERIC_EXPLODE, .1f, 1.1f)
             .category(SoundSource.BLOCKS)
             .build();
 
     public static void init(){
-       /* THOMAS_WHISTLE.prepare();
-        THOMAS_WHISTLE.register();*/
+       /* TWIN_FLUTE_WHISTLE.prepare();
+        TWIN_FLUTE_WHISTLE.register();*/
     }
 
 

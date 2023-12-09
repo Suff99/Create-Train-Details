@@ -3,7 +3,6 @@ package mc.craig.software.train_details.sound;
 import com.simibubi.create.AllSoundEvents;
 import com.simibubi.create.content.trains.entity.Carriage;
 import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
-import com.simibubi.create.content.trains.entity.CarriageSounds;
 import com.simibubi.create.content.trains.entity.Train;
 import mc.craig.software.train_details.SoundEvents;
 import mc.craig.software.train_details.TrainDetailsSounds;
@@ -46,8 +45,8 @@ public class CustomCarriageSounds {
         boolean low = train.lowHonk;
         float honkPitch = (float) Math.pow(2, train.honkPitch / 12.0);
 
-        AllSoundEvents.SoundEntry endSound = TrainDetailsSounds.THOMAS_WHISTLE;
-        AllSoundEvents.SoundEntry continuousSound = TrainDetailsSounds.THOMAS_WHISTLE;
+        AllSoundEvents.SoundEntry endSound = TrainDetailsSounds.TWIN_FLUTE_WHISTLE_END;
+        AllSoundEvents.SoundEntry continuousSound = TrainDetailsSounds.TWIN_FLUTE_WHISTLE_LOOP;
 
         Minecraft mc = Minecraft.getInstance();
 
@@ -75,7 +74,7 @@ public class CustomCarriageSounds {
         if (train.honkTicks == 19)
             endSound.playAt(mc.level, soundLocation, .5f, honkPitch, false);
 
-        sharedHonkSound = playIfMissing(mc, sharedHonkSound, SoundEvents.THOMAS_WHISTLE.get());
+        sharedHonkSound = playIfMissing(mc, sharedHonkSound, SoundEvents.TWIN_FLUTE_WHISTLE_LOOP.get());
         sharedHonkSound.setLocation(soundLocation);
         float fadeout = Mth.clamp((3 - train.honkTicks) / 3f, 0, 1);
         float fadein = Mth.clamp((train.honkTicks - 17) / 3f, 0, 1);

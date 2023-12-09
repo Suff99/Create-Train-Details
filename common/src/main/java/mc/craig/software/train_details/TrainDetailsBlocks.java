@@ -16,17 +16,18 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 public class TrainDetailsBlocks {
     public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(TrainDetails.MOD_ID);
 
-    public static final BlockEntry<Block> THOMAS_WHISTLE = REGISTRATE.block("thomas_whistle", (NonNullFunction<BlockBehaviour.Properties, Block>) properties -> new CustomWhistles(properties, SoundEvents.THOMAS_WHISTLE)).register();
-    public static final BlockEntry<Block> LADY_WHISTLE = REGISTRATE.block("lady_whistle", (NonNullFunction<BlockBehaviour.Properties, Block>) properties -> new CustomWhistles(properties, SoundEvents.LADY_WHISTLE)).register();
-
-
-    public static final ItemEntry<Item> THOMAS_WHISTLE_ITEM = REGISTRATE.item("thomas_whistle", (NonNullFunction<Item.Properties, Item>) properties -> new BlockItem(THOMAS_WHISTLE.get(), properties)).register();
-    public static final ItemEntry<Item> LADY_WHISTLE_ITEM = REGISTRATE.item("lady_whistle", (NonNullFunction<Item.Properties, Item>) properties -> new BlockItem(LADY_WHISTLE.get(), properties)).register();
-
-    public static final BlockEntityEntry<CustomWhistleBlockEntity> THOMAS_WHISTLE_BE =
-            REGISTRATE.blockEntity("thomas_whistle_be", CustomWhistleBlockEntity::new)
-                    .validBlocks(THOMAS_WHISTLE, LADY_WHISTLE).renderer(() -> CustomWhistleBlockRenderer::new)
+    public static final BlockEntry<Block> TWIN_FLUTE_WHISTLE = REGISTRATE.block("twin_flute_whistle", (NonNullFunction<BlockBehaviour.Properties, Block>) properties -> new CustomWhistles(properties, SoundEvents.TWIN_FLUTE_WHISTLE)).register();
+    public static final BlockEntry<Block> ROYAL_WHISTLE = REGISTRATE.block("royal_whistle", (NonNullFunction<BlockBehaviour.Properties, Block>) properties -> new CustomWhistles(properties, SoundEvents.ROYAL_WHISTLE)).register();
+    public static final ItemEntry<Item> TWIN_FLUTE_WHISTLE_ITEM = REGISTRATE.item("twin_flute_whistle", (NonNullFunction<Item.Properties, Item>) properties -> new BlockItem(TWIN_FLUTE_WHISTLE.get(), properties)).register();
+    public static final ItemEntry<Item> ROYAL_WHISTLE_ITEM = REGISTRATE.item("royal_whistle", (NonNullFunction<Item.Properties, Item>) properties -> new BlockItem(ROYAL_WHISTLE.get(), properties)).register();
+    public static final BlockEntityEntry<CustomWhistleBlockEntity> CUSTOM_WHISTLE_BE =
+            REGISTRATE.blockEntity("custom_whistle_be", CustomWhistleBlockEntity::new)
+                    .validBlocks(TWIN_FLUTE_WHISTLE, ROYAL_WHISTLE).renderer(() -> CustomWhistleBlockRenderer::new)
                     .register();
+
+    static {
+        REGISTRATE.creativeModeTab(() -> TrainDetailsCreativeTab.BASE_CREATIVE_TAB);
+    }
 
 
 

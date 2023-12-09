@@ -1,5 +1,5 @@
-// 1.19.2	2023-12-08T22:26:33.7706725	Models
-26508b3b6f004b6df0cd3bd9b2b979adf94a236b assets\train_details\models\item\thomas_whistle.json
-63229c516df6e2de96dc6a007dbeaf6b07f7af24 assets\train_details\blockstates\lady_whistle.json
-867198d2e2f139b3134b39193f3678a53219659e assets\train_details\blockstates\thomas_whistle.json
-b6b6006cde32d5efe8f60c84a175629375f5c5bb assets\train_details\models\item\lady_whistle.json
+// 1.19.2	2023-12-09T13:55:07.792341	Models
+0841fde0d8675f15fc53216c033e8069e5ae0346 assets\train_details\models\item\royal_whistle.json
+9623d8fe013bfce8f9cdade9efad6e947fe9bedc assets\train_details\models\item\twin_flute_whistle.json
+078296d8ee20f63455fdd63fa94c6f40e59c6ec6 assets\train_details\blockstates\twin_flute_whistle.json
+553697fd523e640fcb72d425f91a72dfff37c145 assets\train_details\blockstates\royal_whistle.json
