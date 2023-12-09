@@ -7,6 +7,7 @@ import com.simibubi.create.content.trains.entity.CarriageSounds;
 import com.simibubi.create.content.trains.entity.Train;
 import mc.craig.software.train_details.SoundEvents;
 import mc.craig.software.train_details.TrainDetailsSounds;
+import mc.craig.software.train_details.util.whistles.WhistleUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
@@ -24,6 +25,8 @@ public class CustomCarriageSounds {
     }
 
     public void tick(Carriage.DimensionalCarriageEntity dce) {
+        if(!WhistleUtil.isFirstWhistleCustom(dce)) return;
+
         Train train = entity.getCarriage().train;
 
         if (train.honkTicks == 0) {
