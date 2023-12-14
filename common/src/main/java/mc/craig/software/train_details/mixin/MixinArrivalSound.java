@@ -2,7 +2,7 @@ package mc.craig.software.train_details.mixin;
 
 import com.simibubi.create.content.trains.entity.ArrivalSoundQueue;
 import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
-import mc.craig.software.train_details.blocks.CustomWhistles;
+import mc.craig.software.train_details.blocks.CustomWhistleBlock;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,15 +23,15 @@ public class MixinArrivalSound {
             return;
         BlockState state = info.state;
 
-        if (state.getBlock() instanceof CustomWhistles customWhistles) {
-            playSimple(entity, customWhistles.getSoundEvent().get(), 1, 1);
+        if (state.getBlock() instanceof CustomWhistleBlock customWhistleBlock) {
+            playSimple(entity, customWhistleBlock.getWhistleSound().getArrivalSound().get(), 1, 1);
             ci.cancel(); //uh yeah this kinda cancels all the other sounds....yeesh
         }
     }
 
     @Inject(at = @At("HEAD"), method = "isPlayable(Lnet/minecraft/world/level/block/state/BlockState;)Z", cancellable = true)
     private static void isPlayable(BlockState state, CallbackInfoReturnable<Boolean> cir) {
-        if(state.getBlock() instanceof CustomWhistles customWhistles){
+        if(state.getBlock() instanceof CustomWhistleBlock customWhistleBlock){
             cir.setReturnValue(true);
         }
     }

@@ -1,7 +1,17 @@
 {
   "royal_whistle_blow": {
     "sounds": [
-      "train_details:royal_whistle_blow"
+      "train_details:royal/royal_whistle_blow"
+    ]
+  },
+  "royal_whistle_end": {
+    "sounds": [
+      "train_details:royal/royal_whistle_end"
+    ]
+  },
+  "royal_whistle_loop": {
+    "sounds": [
+      "train_details:royal/royal_whistle_loop"
     ]
   },
   "twin_flute_whistle_blow": {

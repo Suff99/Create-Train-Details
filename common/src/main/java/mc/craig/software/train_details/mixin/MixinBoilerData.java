@@ -5,7 +5,7 @@ import com.simibubi.create.content.fluids.tank.BoilerData;
 import com.simibubi.create.content.fluids.tank.FluidTankBlock;
 import com.simibubi.create.content.fluids.tank.FluidTankBlockEntity;
 import com.simibubi.create.foundation.utility.Iterate;
-import mc.craig.software.train_details.blocks.CustomWhistles;
+import mc.craig.software.train_details.blocks.CustomWhistleBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
@@ -38,7 +38,7 @@ public class MixinBoilerData {
                     for (Direction d : Iterate.directions) {
                         BlockPos attachedPos = pos.relative(d);
                         BlockState attachedState = level.getBlockState(attachedPos);
-                        if (attachedState.getBlock() instanceof CustomWhistles
+                        if (attachedState.getBlock() instanceof CustomWhistleBlock
                                 && WhistleBlock.getAttachedDirection(attachedState)
                                 .getOpposite() == d)
                             attachedEngines++;

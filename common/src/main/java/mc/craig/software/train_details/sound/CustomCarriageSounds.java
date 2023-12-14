@@ -6,13 +6,18 @@ import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
 import com.simibubi.create.content.trains.entity.Train;
 import mc.craig.software.train_details.SoundEvents;
 import mc.craig.software.train_details.TrainDetailsSounds;
+import mc.craig.software.train_details.blocks.CustomWhistleBlock;
 import mc.craig.software.train_details.util.whistles.WhistleUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.phys.Vec3;
+
+import java.util.function.Supplier;
 
 public class CustomCarriageSounds {
 
@@ -25,6 +30,11 @@ public class CustomCarriageSounds {
 
     public void tick(Carriage.DimensionalCarriageEntity dce) {
         if(!WhistleUtil.isFirstWhistleCustom(dce)) return;
+
+        StructureTemplate.StructureBlockInfo whistle = WhistleUtil.getFirstCustomWhistle(dce);
+        BlockState whistleState = whistle.state;
+
+        if (whistleState.getBlock() instanceof CustomWhistleBlock customWhistleBlock) {
 
         Train train = entity.getCarriage().train;
 
@@ -45,8 +55,9 @@ public class CustomCarriageSounds {
         boolean low = train.lowHonk;
         float honkPitch = (float) Math.pow(2, train.honkPitch / 12.0);
 
-        AllSoundEvents.SoundEntry endSound = TrainDetailsSounds.TWIN_FLUTE_WHISTLE_END;
-        AllSoundEvents.SoundEntry continuousSound = TrainDetailsSounds.TWIN_FLUTE_WHISTLE_LOOP;
+            honkPitch = 1;
+        AllSoundEvents.SoundEntry endSound = customWhistleBlock.getWhistleSound().getEndSound();
+        Supplier<SoundEvent> continuousSound = customWhistleBlock.getWhistleSound().getLoopingSound();
 
         Minecraft mc = Minecraft.getInstance();
 
@@ -74,13 +85,14 @@ public class CustomCarriageSounds {
         if (train.honkTicks == 19)
             endSound.playAt(mc.level, soundLocation, .5f, honkPitch, false);
 
-        sharedHonkSound = playIfMissing(mc, sharedHonkSound, SoundEvents.TWIN_FLUTE_WHISTLE_LOOP.get());
+        sharedHonkSound = playIfMissing(mc, sharedHonkSound, continuousSound.get());
         sharedHonkSound.setLocation(soundLocation);
         float fadeout = Mth.clamp((3 - train.honkTicks) / 3f, 0, 1);
         float fadein = Mth.clamp((train.honkTicks - 17) / 3f, 0, 1);
         sharedHonkSound.setVolume(1 - fadeout - fadein);
         sharedHonkSound.setPitch(honkPitch);
 
+        }
     }
 
 

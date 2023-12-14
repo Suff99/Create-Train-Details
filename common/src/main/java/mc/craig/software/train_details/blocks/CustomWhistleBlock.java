@@ -14,20 +14,20 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.function.Supplier;
 
-public class CustomWhistles extends WhistleBlock {
+public class CustomWhistleBlock extends WhistleBlock {
 
-    private final Supplier<SoundEvent> soundEvent;
+    private final IWhistleSound whistleSound;
 
-    public CustomWhistles(Properties properties, Supplier<SoundEvent> soundEventSupplier) {
+    public CustomWhistleBlock(Properties properties, IWhistleSound whistleSound) {
         super(properties);
         registerDefaultState(defaultBlockState().setValue(POWERED, false)
                 .setValue(WALL, false)
                 .setValue(SIZE, WhistleSize.SMALL));
-        this.soundEvent = soundEventSupplier;
+        this.whistleSound = whistleSound;
     }
 
-    public Supplier<SoundEvent> getSoundEvent() {
-        return soundEvent;
+    public IWhistleSound getWhistleSound() {
+        return whistleSound;
     }
 
     @Override

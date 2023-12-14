@@ -6,7 +6,7 @@ import com.simibubi.create.content.decoration.steamWhistle.WhistleBlockEntity;
 import com.simibubi.create.content.kinetics.steamEngine.SteamJetParticleData;
 import com.simibubi.create.foundation.utility.AngleHelper;
 import com.simibubi.create.foundation.utility.VecHelper;
-import mc.craig.software.train_details.blocks.CustomWhistles;
+import mc.craig.software.train_details.blocks.CustomWhistleBlock;
 import mc.craig.software.train_details.sound.CustomWhisteSoundInstance;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -50,8 +50,8 @@ public class CustomWhistleBlockEntity extends WhistleBlockEntity {
                     .play(soundInstance = new CustomWhisteSoundInstance(size, worldPosition));
             BlockState blockState = getBlockState();
             Block block = blockState.getBlock();
-            if(block instanceof CustomWhistles customWhistles) {
-                new AllSoundEvents.SoundEntryBuilder(customWhistles.getSoundEvent().get().getLocation()).build().playAt(level, worldPosition, maxVolume * .175f,
+            if(block instanceof CustomWhistleBlock customWhistleBlock) {
+                new AllSoundEvents.SoundEntryBuilder(customWhistleBlock.getWhistleSound().getLoopingSound().get().getLocation()).build().playAt(level, worldPosition, maxVolume * .175f,
                         size == WhistleBlock.WhistleSize.SMALL ? f + .75f : f, false);
                 particle = true;
             }

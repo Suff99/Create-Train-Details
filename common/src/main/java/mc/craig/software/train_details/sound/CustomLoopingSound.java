@@ -9,8 +9,8 @@ import net.minecraft.world.phys.Vec3;
 
 public class CustomLoopingSound extends AbstractTickableSoundInstance {
 
-    protected CustomLoopingSound(SoundEvent p_119606_, SoundSource p_119607_) {
-        super(p_119606_, p_119607_, SoundInstance.createUnseededRandom());
+    protected CustomLoopingSound(SoundEvent soundEvent, SoundSource soundSource) {
+        super(soundEvent, soundSource, SoundInstance.createUnseededRandom());
         attenuation = Attenuation.LINEAR;
         looping = true;
         delay = 0;

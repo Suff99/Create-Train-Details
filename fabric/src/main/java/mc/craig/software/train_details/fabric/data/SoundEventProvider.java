@@ -25,6 +25,9 @@ public class SoundEventProvider extends SoundDefinitionsProvider {
         add(SoundEvents.TWIN_FLUTE_WHISTLE.get(), SoundDefinition.definition().with(SoundDefinition.Sound.sound(new ResourceLocation(TrainDetails.MOD_ID, "twin_flute/twin_flute_whistle_blow"), SoundDefinition.SoundType.SOUND)));
         add(SoundEvents.TWIN_FLUTE_WHISTLE_END.get(), SoundDefinition.definition().with(SoundDefinition.Sound.sound(new ResourceLocation(TrainDetails.MOD_ID, "twin_flute/twin_flute_end"), SoundDefinition.SoundType.SOUND)));
         add(SoundEvents.TWIN_FLUTE_WHISTLE_LOOP.get(), SoundDefinition.definition().with(SoundDefinition.Sound.sound(new ResourceLocation(TrainDetails.MOD_ID, "twin_flute/twin_flute_loop"), SoundDefinition.SoundType.SOUND)));
-        add(SoundEvents.ROYAL_WHISTLE.get(), SoundDefinition.definition().with(SoundDefinition.Sound.sound(new ResourceLocation(TrainDetails.MOD_ID, "royal_whistle_blow"), SoundDefinition.SoundType.SOUND)));
+
+        add(SoundEvents.ROYAL_WHISTLE.get(), SoundDefinition.definition().with(SoundDefinition.Sound.sound(new ResourceLocation(TrainDetails.MOD_ID, "royal/royal_whistle_blow"), SoundDefinition.SoundType.SOUND)));
+        add(SoundEvents.ROYAL_WHISTLE_LOOP.get(), SoundDefinition.definition().with(SoundDefinition.Sound.sound(new ResourceLocation(TrainDetails.MOD_ID, "royal/royal_whistle_loop"), SoundDefinition.SoundType.SOUND)));
+        add(SoundEvents.ROYAL_WHISTLE_END.get(), SoundDefinition.definition().with(SoundDefinition.Sound.sound(new ResourceLocation(TrainDetails.MOD_ID, "royal/royal_whistle_end"), SoundDefinition.SoundType.SOUND)));
     }
 }
